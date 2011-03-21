@@ -25,6 +25,7 @@
 #include "dbus-transport-protected.h"
 #include "dbus-transport-unix.h"
 #include "dbus-transport-socket.h"
+#include "dbus-transport-vmci.h"
 #include "dbus-connection-internal.h"
 #include "dbus-watch.h"
 #include "dbus-auth.h"
@@ -345,6 +346,7 @@ static const struct {
   { _dbus_transport_open_socket },
   { _dbus_transport_open_platform_specific },
   { _dbus_transport_open_autolaunch }
+  , { _dbus_transport_open_vmci }
 #ifdef DBUS_BUILD_TESTS
   , { _dbus_transport_open_debug_pipe }
 #endif

@@ -25,6 +25,7 @@
 #include "dbus-server.h"
 #include "dbus-server-unix.h"
 #include "dbus-server-socket.h"
+#include "dbus-server-vmci.h"
 #include "dbus-string.h"
 #ifdef DBUS_BUILD_TESTS
 #include "dbus-server-debug-pipe.h"
@@ -512,6 +513,7 @@ static const struct {
                                    DBusError        *error);
 } listen_funcs[] = {
   { _dbus_server_listen_socket }
+  , { _dbus_server_listen_vmci }
   , { _dbus_server_listen_platform_specific }
 #ifdef DBUS_BUILD_TESTS
   , { _dbus_server_listen_debug_pipe }

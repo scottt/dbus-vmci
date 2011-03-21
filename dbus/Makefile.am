@@ -1,7 +1,7 @@
 
 configdir=$(sysconfdir)/dbus-1
 
-INCLUDES=-I$(top_builddir) -I$(top_srcdir) $(DBUS_CLIENT_CFLAGS) @PIC_CFLAGS@ -DDBUS_COMPILATION	\
+INCLUDES=-I$(top_builddir) -I$(top_srcdir) $(DBUS_CLIENT_CFLAGS) @PIC_CFLAGS@ -DDBUS_COMPILATION -I/usr/lib/vmware/include/vmci	\
 	-DDBUS_MACHINE_UUID_FILE=\""$(localstatedir)/lib/dbus/machine-id"\"		\
 	-DDBUS_SYSTEM_CONFIG_FILE=\""$(configdir)/system.conf"\"			\
 	-DDBUS_SESSION_CONFIG_FILE=\""$(configdir)/session.conf"\"
@@ -170,6 +170,8 @@ DBUS_LIB_SOURCES=				\
 	dbus-server-protected.h			\
 	dbus-server-socket.c			\
 	dbus-server-socket.h			\
+	dbus-server-vmci.c                      \
+	dbus-server-vmci.h                      \
 	$(DBUS_LIB_arch_sources)		\
 	dbus-sha.c				\
 	dbus-sha.h				\
@@ -183,6 +185,8 @@ DBUS_LIB_SOURCES=				\
 	dbus-transport-protected.h		\
 	dbus-transport-socket.c			\
 	dbus-transport-socket.h			\
+	dbus-transport-vmci.c                   \
+	dbus-transport-vmci.h                   \
 	dbus-watch.c				\
 	dbus-watch.h
 
